@@ -13,19 +13,13 @@ public class Planeta {
 	private Long id;
 	
 	private String nome;
-	
 	private String descricao;
 	
 	private double areaSuperficie;
-	
 	private double periodoOrbital;
-	
 	private double gravidade;
-	
 	private double DistanciaSol;
-	
 	private double DuracaoDia;
-	
 	private double raio;
 
 	public Long getId() {
