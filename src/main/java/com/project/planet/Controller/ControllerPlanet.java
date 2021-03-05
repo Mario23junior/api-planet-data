@@ -28,6 +28,14 @@ public class ControllerPlanet {
 	public Planeta save(@RequestBody Planeta planet) {
 		return planetaRepository.save(planet);
 	}
+	
+	
+	@GetMapping("/{id}")
+	public Planeta listById(@PathVariable Long id) {
+		 return planetaRepository
+		            .findById(id)
+		            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"Planeta não encontrado"));	 
+	}
 }
 
 
