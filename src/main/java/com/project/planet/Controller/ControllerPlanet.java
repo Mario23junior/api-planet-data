@@ -1,5 +1,9 @@
 package com.project.planet.Controller;
 
+import java.util.List;
+
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,21 +67,15 @@ public class ControllerPlanet {
 		               }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
 		 
 	}
+	
+	
+	@GetMapping
+	public List<Planeta> findAllData(Planeta planeta) {
+		ExampleMatcher planetaData = ExampleMatcher
+				              .matching()
+				              .withIgnoreCase()
+				              .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+		Example<Planeta> comcat = Example.of(planeta,planetaData);
+		return planetaRepository.findAll(comcat);
+	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
