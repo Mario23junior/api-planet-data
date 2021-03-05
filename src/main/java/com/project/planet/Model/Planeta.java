@@ -19,7 +19,7 @@ public class Planeta {
 	private double periodoOrbital;
 	private double gravidade;
 	private double DistanciaSol;
-	private double DuracaoDia;
+	private String DuracaoDia;
 	private double raio;
 
 	public Long getId() {
@@ -78,11 +78,11 @@ public class Planeta {
 		DistanciaSol = distanciaSol;
 	}
 
-	public double getDuracaoDia() {
+	public String getDuracaoDia() {
 		return DuracaoDia;
 	}
 
-	public void setDuracaoDia(double duracaoDia) {
+	public void setDuracaoDia(String duracaoDia) {
 		DuracaoDia = duracaoDia;
 	}
 
