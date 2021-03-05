@@ -1,5 +1,9 @@
 package com.project.planet.Controller;
 
+import java.util.List;
+
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,6 +66,19 @@ public class ControllerComplementInformation {
 		                	return updateData;
 		                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT,"não existe dados para atualizar"));
 	}
+	
+	
+	@GetMapping
+	public List<ComplementInformation> findAllData(ComplementInformation compleInfo) {
+		  ExampleMatcher compara = ExampleMatcher
+				                       .matching()
+				                       .withIgnoreCase()
+				                       .withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+		  Example<ComplementInformation> comcat = Example.of(compleInfo, compara);
+		  return repositoryCompleInfor.findAll(comcat);
+		  
+  	}
+	
 }
 
 
