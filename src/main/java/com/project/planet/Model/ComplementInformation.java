@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ComplementInformation {
@@ -15,7 +16,15 @@ public class ComplementInformation {
 	 private String nomeDescobridor;
 	 private String descobrimento; 
 	 private String tipoPlaneta;
+	 @ManyToOne
+	 private Planeta planeta;
 	 
+	public Planeta getPlaneta() {
+		return planeta;
+	}
+	public void setPlaneta(Planeta planeta) {
+		this.planeta = planeta;
+	}
 	public Long getId() {
 		return id;
 	}
