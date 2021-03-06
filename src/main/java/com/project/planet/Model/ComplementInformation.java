@@ -4,7 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class ComplementInformation {
@@ -16,7 +19,10 @@ public class ComplementInformation {
 	 private String nomeDescobridor;
 	 private String descobrimento; 
 	 private String tipoPlaneta;
+	 
 	 @ManyToOne
+	 @JsonIgnore
+	 @JoinColumn(name = "planeta_id")
 	 private Planeta planeta;
 	 
 	public Planeta getPlaneta() {
