@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Planeta {
@@ -12,13 +14,25 @@ public class Planeta {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NotEmpty(message = "{campo.nome}")
 	private String nome;
+	
+	@NotEmpty(message = "{campo.descricao}")
 	private String descricao;
 	
-	private double areaSuperficie;
+    @DecimalMin("1")
+ 	private double areaSuperficie;
+	
+    @DecimalMin("1")
 	private double periodoOrbital;
+    
+    @DecimalMin("0")
 	private double gravidade;
+    
+    @DecimalMin("10000")
 	private double DistanciaSol;
+	
+	@NotEmpty(message = "{campo.DuracaoDia}")
 	private String DuracaoDia;
 	private double raio;
 
