@@ -17,13 +17,13 @@ public class ComplementInformation {
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	 private Long id;
 	 
-	 @NotEmpty(message = "${campo.nomeDescobridor}")
+	 @NotEmpty(message = "{campo.nomeDescobridor}")
 	 private String nomeDescobridor;
 	 
-	 @NotEmpty(message = "${campo.descobrimento}")
+	 @NotEmpty(message = "{campo.descobrimento}")
 	 private String descobrimento; 
 	 
-	 @NotEmpty(message = "${campo.tipoPlaneta}")
+	 @NotEmpty(message = "{campo.tipoPlaneta}")
 	 private String tipoPlaneta;
 	 
 	 @ManyToOne
