@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -16,8 +17,13 @@ public class ComplementInformation {
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	 private Long id;
 	 
+	 @NotEmpty(message = "${campo.nomeDescobridor}")
 	 private String nomeDescobridor;
+	 
+	 @NotEmpty(message = "${campo.descobrimento}")
 	 private String descobrimento; 
+	 
+	 @NotEmpty(message = "${campo.tipoPlaneta}")
 	 private String tipoPlaneta;
 	 
 	 @ManyToOne
