@@ -3,14 +3,13 @@ package com.project.planet.DTOModel;
 public class PlanetInformationDTO {
    
 	private Long id;
-	
-	private String nome;
-	private String descricao;
-	private double areaSuperficie;
-	private double periodoOrbital;
-	private double gravidade;
-	private double DistanciaSol;
-	private String DuracaoDia;
+ 	private String nome;
+ 	private String descricao;
+ 	private double areaSuperficie;
+ 	private double periodoOrbital;
+ 	private double gravidade;
+ 	private double DistanciaSol;
+ 	private String DuracaoDia;
 	private double raio;
 	
 	private String nomeDescobridor;

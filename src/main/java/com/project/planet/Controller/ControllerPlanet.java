@@ -2,6 +2,8 @@ package com.project.planet.Controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
@@ -31,7 +33,7 @@ public class ControllerPlanet {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Planeta save(@RequestBody Planeta planet) {
+	public Planeta save(@RequestBody @Valid Planeta planet) {
 		return planetaRepository.save(planet);
 	}
 	
@@ -57,7 +59,7 @@ public class ControllerPlanet {
 	
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void update(@PathVariable Long id, @RequestBody Planeta planeta) {
+	public void update(@PathVariable Long id, @Valid @RequestBody Planeta planeta) {
 		 planetaRepository
 		               .findById(id)
 		               .map(updateId -> {
