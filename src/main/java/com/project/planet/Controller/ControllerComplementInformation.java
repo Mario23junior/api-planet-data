@@ -2,6 +2,8 @@ package com.project.planet.Controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
@@ -31,7 +33,7 @@ public class ControllerComplementInformation {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ComplementInformation salva(@RequestBody ComplementInformation complementInformation) {
+	public ComplementInformation salva(@RequestBody @Valid ComplementInformation complementInformation) {
 		return repositoryCompleInfor.save(complementInformation);
 	}
 	
@@ -57,7 +59,7 @@ public class ControllerComplementInformation {
 	
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void update(@PathVariable Long id, @RequestBody ComplementInformation complementInformation) {
+	public void update(@PathVariable Long id, @Valid @RequestBody ComplementInformation complementInformation) {
 		  repositoryCompleInfor 
 		                .findById(id)
 		                .map(updateData -> {
